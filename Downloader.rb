@@ -4,10 +4,9 @@ require 'fileutils'
 require 'open-uri'
 require 'mediawiki_api'
 require 'faraday'
-#require 'openssl'
-# In case if you have problems with SSL verification, uncomment first and last
-# lines of this message. Use this SSL-solve method on your own risk!
-#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 module RubyDownloader
   PATH = File.dirname(__FILE__)
@@ -113,7 +112,7 @@ module RubyDownloader
     def main
       puts @msg[ 'menu-return' ]
       gets
-      menu
+      menu( false, '' )
     end
 
     def quit
@@ -179,7 +178,7 @@ module RubyDownloader
           done_f += 1
           progress = ( done_f.to_f / all_f.to_f ) * 100
 
-          system( "echo \"\033]0;#{ @msg[ 'status-msg' ] % [ "#{ progress.floor }%", err_counter, line ] }\007\"" )
+          system( "echo \"\033]0;#{ @msg[ 'status-msg' ] % [ "#{ progress.floor }%", done_f, all_f, err_counter, line ] }\007\"" )
           RubyDownloader.cls
 
           @c_from.query( titles: "File:#{ line } ", prop: 'imageinfo', iiprop: 'url' ).data[ 'pages' ].each do | k, v |
@@ -206,13 +205,14 @@ module RubyDownloader
           err_counter += 1
 
           puts @msg[ 'dwn-error' ] % [ line, err.inspect ]
-          log_err( "#{ line }:\n#{ err.backtrace.join( "\n" ) }" )
+          log_err( "="*80 + "#{ line }:\n#{ err.backtrace.join( "\n" ) }\n" + "="*80 )
 
           next
         end
       end
 
       # On done
+      RubyDownloader.cls
       puts @msg[ 'is-done' ]
       RubyDownloader.main
     end

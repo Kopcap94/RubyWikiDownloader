@@ -4,10 +4,9 @@ require 'fileutils'
 require 'open-uri'
 require 'mediawiki_api'
 require 'faraday'
-#require 'openssl'
-# In case if you have problems with SSL verification, uncomment first and last
-# lines of this message. Use this SSL-solve method on your own risk!
-#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 module RubyDownloader
   PATH = File.dirname(__FILE__)
@@ -245,7 +244,8 @@ module RubyDownloader
       gets
       puts @msg[ 'helper-progress' ]
 
-      d = @wiki.prop( :images, titles: @page, imlimit: 5000, token_type: false ).data[ 'pages' ]
+      res = @wiki.query( titles: @page, prop: 'images', imlimit: 5000, bot: 1 )
+      d = res.data[ 'pages' ]
 
       if !d[ "-1" ].nil? then
         puts @msg[ 'helper-missing-page' ] % @page
@@ -254,6 +254,26 @@ module RubyDownloader
 
       d.each do | k, v |
         v[ 'images' ].each { | obj | @list += "#{ obj[ 'title' ].gsub( /^[^:]+:/, '') }\n" }
+      end
+
+      if !res[ 'query-continue' ].nil? then
+        r = true
+        c = res[ 'query-continue' ][ 'images' ][ 'imcontinue' ]
+
+        while r
+          res = @wiki.query( titles: @page, prop: 'images', imlimit: 5000, imcontinue: c )
+
+          d = res.data[ 'pages' ]
+          d.each do | k, v |
+            v[ 'images' ].each { | obj | @list += "#{ obj[ 'title' ].gsub( /^[^:]+:/, '') }\n" }
+          end
+
+          if res[ 'query-continue' ].nil? then
+            r = false
+          else
+            c = res[ 'query-continue' ][ 'images' ][ 'imcontinue' ]
+          end
+        end
       end
 
       File.open( PATH + '/' + @file, 'w+' ) {|f| f.write( @list )}

@@ -4,9 +4,10 @@ require 'fileutils'
 require 'open-uri'
 require 'mediawiki_api'
 require 'faraday'
-require 'openssl'
-
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+#require 'openssl'
+# In case if you have problems with SSL verification, uncomment first and last
+# lines of this message. Use this SSL-solve method on your own risk!
+#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 module RubyDownloader
   PATH = File.dirname(__FILE__)

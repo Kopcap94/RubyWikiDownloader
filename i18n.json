@@ -1,7 +1,35 @@
 {
   "langs": [
-    "en", "ru"
+    "de", "en", "ru"
   ],
+  "de": {
+    "menu": "Menü",
+    "menu-program": "Programm ausführen",
+    "menu-helper": "Helfer ausführen (erstellt eine Liste von Bildern, die auf der Konfigurationsseite des Wikis definiert wurden.)",
+    "menu-reload": "Konfiguration neuladen.",
+    "menu-reload-done": "Konfigurationsdatei wurde erfolgreich neugeladen.",
+    "menu-select": "Wähle aus (trage die Zahl der gewählten Option ein) und drücke Enter.",
+    "menu-wrong-input": "Gewählte Option ist falsch. Versuche es erneut!",
+    "menu-return": "Drücke Enter und kehre ins Hauptmenü zurück.",
+    "list-not-exist": "Konnte Datei mit Bilderliste nicht finden. Bitte überprüfe den Dateinamen der Bilderliste in deiner Konfigurationsdatei!",
+    "list-is-empty": "Bilderliste ist leer.",
+    "log-in": "Im Wiki einloggen, um Bilder hochladen zu können.",
+    "log-in-error": "Ein Fehler trat beim einloggen ins Wiki auf %s. Weitere Informationen in error.log-Datei.",
+    "token": "Hole Token.",
+    "status-msg": "Fortschritt: %s [%s von %s] / Fehler: %s / Datei: %s",
+    "dwn-file": "Lade Datei herunter.",
+    "upload-file": "Lade Datei im Wiki hoch.",
+    "dwn-error": "Fehler! Datei %s konnte nicht gespeichert oder hochgeladen werden. Für weitere Informationen siehe errors.log. Fehler: %s",
+    "done": "Fertig.",
+    "is-done": "Alles erledigt. Viel Spaß mit deinen Bildern ;)",
+    "helper-intro": "Dieses Programm erstellt dir eine Liste von Bildern der ausgewählten Seite im Quellwiki.",
+    "helper-page": "Ausgewählte Seite: %s\nDrücke Enter, um fortzufahren.",
+    "helper-progress": "Hole Liste von Bildern von der ausgewählten Seite.",
+    "helper-missing-page": "Ausgewählte Seite '%s' existiert nicht.",
+    "helper-empty-value": "Seite ist nicht in der Konfigurationsdatei aufgeführt.",
+    "helper-done": "Fertig, Liste wurde in Datei gespeichert %s.",
+    "quit": "Drücke Enter, um das Programm zu verlassen!"
+  },
   "en": {
     "menu": "Menu",
     "menu-program": "Execute program",

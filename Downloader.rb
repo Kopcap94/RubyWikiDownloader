@@ -51,7 +51,7 @@ module RubyDownloader
         puts "Downloading i18n"
 
         open( I18N_PATH, 'wb' ) do | f |
-          f << open( "http://ru.siegenax.wikia.com/wiki/User:Kopcap94/i18n?action=raw" ).read
+          f << open( "https://raw.githubusercontent.com/Kopcap94/RubyWikiDownloader/master/i18n.json" ).read
         end
       end
 

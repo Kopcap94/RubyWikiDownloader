@@ -5,7 +5,7 @@
   "en": {
     "menu": "Menu",
     "menu-program": "Execute program",
-    "menu-helper": "Execute helper (will create list of images from selected in config page on wiki).",
+    "menu-helper": "Execute helper (will create list of images from selected page in config file).",
     "menu-reload": "Reload config.",
     "menu-reload-done": "Config file was reloaded successfully.",
     "menu-select": "Choose option (input number of selected option) and press enter.",
@@ -15,7 +15,7 @@
     "list-is-empty": "List of files is empty.",
     "log-in": "Logging on wiki to upload images.",
     "log-in-error": "Something went wrong with logging in on wiki %s. More info on error.log file.",
-    "token": "Fletching token.",
+    "token": "Getting token.",
     "status-msg": "Progress: %s [%s of %s] / Errors: %s / File: %s",
     "dwn-file": "Downloading file.",
     "upload-file": "Uploading file on wiki.",
@@ -24,8 +24,8 @@
     "is-done": "All done. Have fun with your images ;)",
     "helper-intro": "This program is used to create list of images from selected page on target wiki.",
     "helper-page": "Selected page: %s\nPress enter to continue.",
-    "helper-progress": "Fletching list of images, that are on selected page.",
-    "helper-missing-page": "Selected page '%s' is not exist.",
+    "helper-progress": "Getting list of images, that are on selected page.",
+    "helper-missing-page": "Selected page '%s' does not exist.",
     "helper-empty-value": "Page was not specified in config file.",
     "helper-done": "Done, list was saved to file %s.",
     "quit": "Press enter to exit!"

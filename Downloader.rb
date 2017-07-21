@@ -117,7 +117,7 @@ module RubyDownloader
     end
 
     def quit
-      puts @msg[ 'quit' ]
+      puts "Press enter to exit"
       gets
       exit
     end

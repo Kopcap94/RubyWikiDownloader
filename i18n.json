@@ -1,6 +1,6 @@
 {
   "langs": [
-    "de", "en", "ru"
+    "de", "en", "ru", "es"
   ],
   "de": {
     "menu": "Menü",
@@ -85,5 +85,33 @@
     "helper-empty-value": "Название страницы не указано в конфиге.",
     "helper-done": "Готово. Список изображений сохранён в файл %s.",
     "quit": "Нажмите enter, чтобы выйти!"
+  },
+  "es": {
+    "menu": "Menú",
+    "menu-program": "Ejecutar programa",
+    "menu-helper": "Ejecutar asistente (creará la lista de imágenes desde la página seleccionada en el archivo de configuración).",
+    "menu-reload": "Recargar configuración.",
+    "menu-reload-done": "El archivo de configuración fue recargado correctamente.",
+    "menu-select": "Elige una opción (inserte el número de la opción seleccionada) y presiona enter.",
+    "menu-wrong-input": "La opción seleccionada es incorrecta. ¡Intentalo de nuevo!",
+    "menu-return": "Presiona enter para volver al menú.",
+    "list-not-exist": "No se pudo encontrar el archivo con la lista de imágenes. ¡Por favor, revisa el nombre del archivo de la lista en tu archivo de configuración!",
+    "list-is-empty": "La lista de archivos está vacía.",
+    "log-in": "Iniciando sesión para subir las imágenes.",
+    "log-in-error": "Ocurrió algo incorrecto mientras se inició sesión en el wiki %s. Mas info en el archivo error.log.",
+    "token": "Obteniendo token.",
+    "status-msg": "Progreso: %s [%s of %s] / Errores: %s / Archivo: %s",
+    "dwn-file": "Descargando archivo.",
+    "upload-file": "Subiendo archivo al wiki.",
+    "dwn-error": "¡Error! El archivo %s no fue guardado o subido. Registrado en errors.log con mas información. Error: %s",
+    "done": "Hecho.",
+    "is-done": "Todo hecho. Diviertete con tus imágenes ;)",
+    "helper-intro": "Este programa es usado para crear listas de imágenes desde la página seleccionada en el wiki elegido.",
+    "helper-page": "Página seleccionada: %s\nPresiona enter para continuar.",
+    "helper-progress": "Obteniendo lista de imágenes, estas están sobre la página seleccionada.",
+    "helper-missing-page": "La página seleccionada '%s' no existe.",
+    "helper-empty-value": "La página no fue especificada en el archivo de configuración.",
+    "helper-done": "Hecho, la lista fue guardada al archivo %s.",
+    "quit": "¡Presiona enter para salir!"
   }
 }

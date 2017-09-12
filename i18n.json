@@ -170,7 +170,6 @@
     "helper-done": "Гатова. Спіс выяў захаваны ў файл %s.",
     "quit": "Націсніце enter, каб выйсці!"
   }
-}
 "pt-br": {
     "menu": "Menu",
     "menu-program": "Executar programa",
@@ -199,3 +198,4 @@
     "helper-done": "Concluído, a lista foi salva no arquivo %s.",
     "quit": "Tecle enter para sair!"
   },
+}

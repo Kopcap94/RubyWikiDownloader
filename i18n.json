@@ -170,4 +170,32 @@
     "helper-done": "Гатова. Спіс выяў захаваны ў файл %s.",
     "quit": "Націсніце enter, каб выйсці!"
   }
+"pt-br": {
+    "menu": "Menu",
+    "menu-program": "Executar programa",
+    "menu-helper": "Executar assistente (uma lista de imagens da página selecionada será criada no arquivo de configuração).",
+    "menu-reload": "Recarregar as configurações",
+    "menu-reload-done": "Arquivo de configuração foi recarregado com sucesso.",
+    "menu-select": "Selecione uma opção (insira o número da opção selecionada) e tecle enter.",
+    "menu-wrong-input": "Opção selecionada incorreta. Tente novamente!",
+    "menu-return": "Tecle enter para voltar ao menu principal.",
+    "list-not-exist": "Falha ao encontrar o arquivo com a lista de imagens. Por favor, verifique o nome do arquivo com a lista de imagens no seu arquivo de configuração.!",
+    "list-is-empty": "Lista de arquivos está vazia.",
+    "log-in": "Iniciando seção na wiki para enviar as imagens.",
+    "log-in-error": "Algo deu errado com início da seção na wiki %s. Detalhes no arquivo error.log.",
+    "token": "Obtendo token.",
+    "status-msg": "Progresso: %s [%s de %s] / Erros: %s / Arquivo: %s",
+    "dwn-file": "Baixando arquivo.",
+    "upload-file": "Enviando arquivo para wiki.",
+    "dwn-error": "Erro! Arquivo %s não foi salvo/enviado. Detalhes no arquivo error.log. Erro: %s",
+    "done": "Concluído.",
+    "is-done": "Tudo pronto. Divirta-se com as suas imagens ;)",
+    "helper-intro": "Esse programa é usado para criar uma lista de imagens de uma determinada página em uma wiki alvo.",
+    "helper-page": "Página selecionada: %s\nTecle enter para continuar.",
+    "helper-progress": "Obtendo lista de imagens que estão na página selecionada.",
+    "helper-missing-page": "Página selecionada '%s' não existe.",
+    "helper-empty-value": "Página não foi especificada no arquivo de configuração.",
+    "helper-done": "Concluído, a lista foi salva no arquivo %s.",
+    "quit": "Tecle enter para sair!"
+  },
 }

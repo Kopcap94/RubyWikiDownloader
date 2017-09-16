@@ -169,8 +169,8 @@
     "helper-empty-value": "Назва старонкі не паказана ў канфігурацыі.",
     "helper-done": "Гатова. Спіс выяў захаваны ў файл %s.",
     "quit": "Націсніце enter, каб выйсці!"
-  }
-"pt-br": {
+  },
+  "pt-br": {
     "menu": "Menu",
     "menu-program": "Executar programa",
     "menu-helper": "Executar assistente (uma lista de imagens da página selecionada será criada no arquivo de configuração).",
@@ -197,5 +197,5 @@
     "helper-empty-value": "Página não foi especificada no arquivo de configuração.",
     "helper-done": "Concluído, a lista foi salva no arquivo %s.",
     "quit": "Tecle enter para sair!"
-  },
+  }
 }

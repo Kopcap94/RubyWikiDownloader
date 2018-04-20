@@ -141,6 +141,8 @@ module RubyDownloader
     end
 
     def log_in
+      RubyDownloader.cls
+
       # Logging on wiki
       @c_from = MediawikiApi::Client.new( "http://#{ @cfg[ 'wikiname' ][ 'from' ] }.wikia.com/api.php" )
 
@@ -181,10 +183,11 @@ module RubyDownloader
 
           system( "echo \"\033]0;#{ @msg[ 'status-msg' ] % [ "#{ progress.floor }%", done_f, all_f, err_counter, line ] }\007\"" )
           RubyDownloader.cls
+          puts @msg[ 'status-msg' ] % [ "#{ progress.floor }%", done_f, all_f, err_counter, line ]
 
           @c_from.query( titles: "File:#{ line } ", prop: 'imageinfo', iiprop: 'url' ).data[ 'pages' ].each do | k, v |
 
-            f_name = line.gsub( /["?]/, '-' ) #
+            f_name = line.gsub( /["?]/, '-' ) #"/
             path = FILE_PATH + "/" + f_name
             url = v[ 'imageinfo' ][ 0 ][ 'url' ]
 
@@ -206,7 +209,7 @@ module RubyDownloader
           err_counter += 1
 
           puts @msg[ 'dwn-error' ] % [ line, err.inspect ]
-          log_err( "="*80 + "#{ line }:\n#{ err.backtrace.join( "\n" ) }\n" + "="*80 )
+          log_err( "="*80 + "\n#{ line }:\n#{ err.backtrace.join( "\n" ) }\n" )
 
           next
         end
@@ -243,6 +246,8 @@ module RubyDownloader
 
       puts @msg[ 'helper-intro' ] + "\n" + ( @msg[ 'helper-page' ] % @page )
       gets
+
+      RubyDownloader.cls
       puts @msg[ 'helper-progress' ]
 
       res = @wiki.query( titles: @page, prop: 'images', imlimit: 5000, bot: 1 )

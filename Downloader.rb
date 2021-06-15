@@ -264,7 +264,7 @@ module RubyDownloader
 
       if !res[ 'continue' ].nil? then
         r = true
-        c = res[ 'continue' ][ 'images' ][ 'imcontinue' ]
+        c = res[ 'continue' ][ 'imcontinue' ]
 
         while r
           res = @wiki.query( titles: @page, prop: 'images', imlimit: 5000, imcontinue: c )
@@ -277,7 +277,7 @@ module RubyDownloader
           if res[ 'continue' ].nil? then
             r = false
           else
-            c = res[ 'continue' ][ 'images' ][ 'imcontinue' ]
+            c = res[ 'continue' ][ 'imcontinue' ]
           end
         end
       end

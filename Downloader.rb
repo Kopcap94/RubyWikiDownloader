@@ -32,8 +32,8 @@ module RubyDownloader
           'password' => 'Your password here',
           'script_lang' => 'en',
           'wikiname' => {
-            'from' => 'community',
-            'to' => 'ru.community',
+            'from' => 'https://community.fandom.com/',
+            'to' => 'https://community.fandom.com/ru/',
             'page' => ''
           },
           'list' => 'filelist.txt',
@@ -144,7 +144,7 @@ module RubyDownloader
       RubyDownloader.cls
 
       # Logging on wiki
-      @c_from = MediawikiApi::Client.new( "http://#{ @cfg[ 'wikiname' ][ 'from' ] }.wikia.com/api.php" )
+      @c_from = MediawikiApi::Client.new( "#{ @cfg[ 'wikiname' ][ 'from' ] }api.php" )
 
       # Checking if user seleted direct uploading
       if @cfg[ 'direct' ] then
@@ -152,12 +152,12 @@ module RubyDownloader
         puts @msg[ 'log-in' ]
 
         begin
-          @c_to = MediawikiApi::Client.new( "http://#{ @cfg[ 'wikiname' ][ 'to' ] }.wikia.com/api.php" )
+          @c_to = MediawikiApi::Client.new( "#{ @cfg[ 'wikiname' ][ 'to' ] }api.php" )
           @c_to.log_in( @cfg['nickname'], @cfg['password'] )
         rescue => err
           msg = @msg[ 'log-in-error' ] % @cfg[ 'wikiname' ][ 'to' ]
 
-          log_err( "#{ msg }\n #{ err.backtrace.join( "\n" ) }" )
+          log_err( "#{ msg }\n #{ err.inspect } #{ err.backtrace.join( "\n" ) }" )
           puts msg
 
           RubyDownloader.quit
@@ -193,14 +193,14 @@ module RubyDownloader
 
             open( path, 'wb' ) do | f |
               puts @msg[ 'dwn-file' ]
-              f << open( url ).read
+              f << URI.open( url ).read
             end
 
             if @cfg[ 'direct' ] then
               puts @msg[ 'upload-file' ]
 
               io_f = Faraday::UploadIO.new( path, 'image/png' )
-              @c_to.action( :upload, filename: f_name, file: io_f, comment: @cfg[ 'comment' ], ignorewarnings: 1, text: @cfg[ 'text' ], token_type: false, token: @token )
+              @c_to.action( :upload, filename: f_name, file: io_f, comment: @cfg[ 'comment' ], ignorewarnings: 1, text: @cfg[ 'text' ], token: @token )
             end
 
             puts @msg[ 'done' ]
@@ -209,7 +209,7 @@ module RubyDownloader
           err_counter += 1
 
           puts @msg[ 'dwn-error' ] % [ line, err.inspect ]
-          log_err( "="*80 + "\n#{ line }:\n#{ err.backtrace.join( "\n" ) }\n" )
+          log_err( "="*80 + "\n#{ line }:\n#{ err.inspect } #{ err.backtrace.join( "\n" ) }\n" )
 
           next
         end
@@ -237,7 +237,7 @@ module RubyDownloader
 
       @file = s.cfg[ 'list' ]
       @msg = s.msg
-      @wiki = MediawikiApi::Client.new( "http://#{ s.cfg[ 'wikiname' ][ 'from' ] }.wikia.com/api.php" )
+      @wiki = MediawikiApi::Client.new( "#{ s.cfg[ 'wikiname' ][ 'from' ] }api.php" )
       @list = ""
     end
 

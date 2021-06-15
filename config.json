@@ -1,0 +1,14 @@
+{
+  "nickname": "Kopcap94",
+  "password": "AppleJuicetice@second_type_of_password_from_special_BotPasswords",
+  "script_lang": "en",
+  "wikiname": {
+    "from": "https://mlp.fandom.com/",
+    "to": "https://mlp.fandom.com/ru/",
+    "page": ""
+  },
+  "list": "filelist.txt",
+  "comment": "Uploading image",
+  "text": "",
+  "direct": false
+}

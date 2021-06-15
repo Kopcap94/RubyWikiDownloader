@@ -193,7 +193,7 @@ module RubyDownloader
 
             open( path, 'wb' ) do | f |
               puts @msg[ 'dwn-file' ]
-              f << URI.open( url ).read
+              f << open( url ).read
             end
 
             if @cfg[ 'direct' ] then

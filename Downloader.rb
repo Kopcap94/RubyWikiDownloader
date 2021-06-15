@@ -262,9 +262,9 @@ module RubyDownloader
         v[ 'images' ].each { | obj | @list += "#{ obj[ 'title' ].gsub( /^[^:]+:/, '') }\n" }
       end
 
-      if !res[ 'query-continue' ].nil? then
+      if !res[ 'continue' ].nil? then
         r = true
-        c = res[ 'query-continue' ][ 'images' ][ 'imcontinue' ]
+        c = res[ 'continue' ][ 'images' ][ 'imcontinue' ]
 
         while r
           res = @wiki.query( titles: @page, prop: 'images', imlimit: 5000, imcontinue: c )
@@ -274,10 +274,10 @@ module RubyDownloader
             v[ 'images' ].each { | obj | @list += "#{ obj[ 'title' ].gsub( /^[^:]+:/, '') }\n" }
           end
 
-          if res[ 'query-continue' ].nil? then
+          if res[ 'continue' ].nil? then
             r = false
           else
-            c = res[ 'query-continue' ][ 'images' ][ 'imcontinue' ]
+            c = res[ 'continue' ][ 'images' ][ 'imcontinue' ]
           end
         end
       end
